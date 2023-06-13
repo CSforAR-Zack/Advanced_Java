@@ -23,7 +23,7 @@ public class Main {
         // BrightenImage("bfly.jpg", "bflyOut.jpg", -100);
 
         // Rotate image
-        RotateImageRight("bfly.jpg", "bflyOut.jpg");
+        // RotateImageRight("bfly.jpg", "bflyOut.jpg");
     }
 
     static void ConvertPNGToJPG(String inputFileName, String outputFileName) {
