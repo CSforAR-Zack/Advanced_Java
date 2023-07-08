@@ -1,8 +1,6 @@
 // Libraries to import
 import javax.swing.*;
-import java.io.*;
 import java.util.*;
-import java.text.*;
 import java.awt.*;
 // Third party libraries
 import org.jfree.chart.*; 
@@ -73,7 +71,7 @@ public class Main extends JFrame {
             rolls.add(rolledSum);
         }
 
-        HashMap<Integer, Integer> frequencies = new HashMap();
+        HashMap<Integer, Integer> frequencies = new HashMap<Integer, Integer>();
 
         int rollSum = die1.GetNumberOfSides() + die2.GetNumberOfSides();            
         for (int i = 2; i <= rollSum; i++){
