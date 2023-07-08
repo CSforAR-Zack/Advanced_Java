@@ -18,11 +18,11 @@ public class Database {
         String endDate = "2022-12-31";
 
         // URL for NOAA weather data
-        URL requestURL = new URL(
+        URL requestURL = new URI(
             "https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=" +
             datasetID + "&datatypeid=" + datatypeIDs + "&stationid=" + stationID + "&startdate=" +
             startDate + "&enddate=" + endDate + "&limit=1000&units=" + units
-        );
+        ).toURL();
 
         // Create connection to NOAA weather data
         HttpURLConnection connection = (HttpURLConnection) requestURL.openConnection();
