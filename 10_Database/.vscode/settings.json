@@ -1,8 +1,9 @@
 {
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
-        "c:\\Users\\emeri\\Downloads\\json-simple-1.1.1.jar",
         "c:\\Users\\emeri\\Downloads\\sqlite-jdbc-3.41.2.2.jar",
-        "c:\\Users\\emeri\\Downloads\\jfreechart-1.5.4.jar"
+        "c:\\Users\\emeri\\Downloads\\jfreechart-1.5.4.jar",
+        "c:\\Users\\emeri\\Downloads\\json-20230618.jar",
+        "c:\\Users\\emeri\\Downloads\\sqlite-jdbc-3.42.0.0.jar"
     ]
 }
