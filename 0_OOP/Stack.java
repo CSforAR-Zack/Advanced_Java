@@ -1,5 +1,10 @@
+import java.util.List;
 
 public class Stack extends Base{
+
+    public Stack(List<Integer> values) {
+        super(values);
+    }
 
     public void push(int value) {
         values.add(value);
