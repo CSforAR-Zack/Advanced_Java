@@ -13,7 +13,7 @@ public class Main {
         stack.push(1);
         stack.push(2);
         stack.PrettyPrint();
-
+        
         Queue queue = new Queue(GenerateValues());
         queue.add(6);
         queue.add(7);

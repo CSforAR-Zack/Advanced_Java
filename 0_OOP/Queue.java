@@ -2,6 +2,9 @@ import java.util.List;
 
 
 public class Queue extends Base{
+    public Queue() {
+        super();
+    }
 
     public Queue(List<Integer> values) {
         super(values);

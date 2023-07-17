@@ -1,6 +1,9 @@
 import java.util.List;
 
 public class Stack extends Base{
+    public Stack() {
+        super();
+    }
 
     public Stack(List<Integer> values) {
         super(values);
