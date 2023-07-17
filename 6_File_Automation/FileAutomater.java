@@ -21,7 +21,10 @@ public class FileAutomater{
     }
 
     public void deleteFiles(String extension){
+        // Delete all files with the given extension
+        // The "." represents the current directory
         File currentDirectory = new File(".");
+        // Get all files in the current directory
         File[] files = currentDirectory.listFiles();
         for (File file : files) {
             if (file.getName().endsWith(extension)) {
@@ -31,19 +34,27 @@ public class FileAutomater{
     }
 
     public void zipFiles(String extension) throws IOException {
+        // The "." represents the current directory
         File currentDirectory = new File(".");
+        // Get all files in the current directory
         File[] files = currentDirectory.listFiles();
 
+
+        // Loop through each file in the current directory
         for (File file : files) {
-            if (file.getName().endsWith(extension)) {  
+            if (file.getName().endsWith(extension)) {
+                // Setup to read original file and write the new file
                 FileInputStream fis = new FileInputStream(file);
                 String fileNameBase = file.getName().split(extension)[0];       
                 FileOutputStream fos = new FileOutputStream(fileNameBase + ".zip");
 
+                // Setup to write the file
                 ZipOutputStream zipOut = new ZipOutputStream(fos);
                 ZipEntry zipEntry = new ZipEntry(file.getName());
                 zipOut.putNextEntry(zipEntry);
 
+                // Read the file and write it to the zip file working with 1024 bytes at a time
+                // and until there are no more bytes to read
                 byte[] bytes = new byte[1024];
                 int length = fis.read(bytes);
                 while(length >= 0) {
@@ -55,12 +66,14 @@ public class FileAutomater{
                 fis.close();
                 fos.close();
 
+                // Delete the original file
                 file.delete();
             }
         }
     }
 
     public void unzipFiles() throws IOException{
+        // The "." represents the current directory
         File currentDirectory = new File(".");
         File[] files = currentDirectory.listFiles();
 

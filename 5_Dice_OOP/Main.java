@@ -49,6 +49,7 @@ public class Main extends JFrame {
     private CategoryDataset createDataset( ) {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
+        // Simulate rolling the dice and store the results in a HashMap
         HashMap<Integer, Integer> rolls = SimulateRolling(die1, die2, numberOfRolls);
 
         for (Integer key : rolls.keySet()){
@@ -66,13 +67,20 @@ public class Main extends JFrame {
     private HashMap<Integer, Integer> SimulateRolling(Die die1, Die die2, int numberOfRolls){
         ArrayList<Integer> rolls = new ArrayList<Integer>();
         
+        // Roll the dice and add the sum to the rolls array
         for (int i = 0; i < numberOfRolls; i++){
             Integer rolledSum = die1.Roll() + die2.Roll();
             rolls.add(rolledSum);
         }
 
+        // Count the number of occurrences of each sum
+        // We use a HashMap to store the sum and the number of occurrences
+        // so we can use the sum as the key and the number of occurrences as the value
         HashMap<Integer, Integer> frequencies = new HashMap<Integer, Integer>();
 
+        // We start at 2 because the lowest possible sum is 2
+        // and the highest possible sum is the number of sides on each die
+        // Iterate through the possible sums and count the number of occurrences
         int rollSum = die1.GetNumberOfSides() + die2.GetNumberOfSides();            
         for (int i = 2; i <= rollSum; i++){
             Integer occurrences = Collections.frequency(rolls, i);

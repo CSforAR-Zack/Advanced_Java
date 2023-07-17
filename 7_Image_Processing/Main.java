@@ -32,7 +32,9 @@ public class Main {
         // Most image viewers will ignore the alpha value and just display the image
         // We could remove the alpha layer to make it a true JPG
         try {
+            // File lets us work with files
             File inputFile = new File(inputFileName);
+            // ImageIO lets us read and write images which we can store in a BufferedImage
             BufferedImage inputImage = ImageIO.read(inputFile);
 
             File outputFile = new File(outputFileName);
@@ -190,7 +192,9 @@ public class Main {
 
     static void BrightenImage(String inputFileName, String outputFileName, int change) {
         try {
+            // File lets us read and write files.
             File inputFile = new File(inputFileName);
+            // ImageIO lets us read and write images.
             BufferedImage inputImage = ImageIO.read(inputFile);
 
             int width = inputImage.getWidth();

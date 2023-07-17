@@ -18,9 +18,12 @@ public class Main{
         System.out.println("Response Code: " + responseCode);
 
         // Read the response
+        // InputStreamReader reads bytes and decodes them into characters using a specified charset
         InputStreamReader streamReader = new InputStreamReader(con.getInputStream());
+        // BufferedReader lets us read line by line from the InputStreamReader
         BufferedReader in = new BufferedReader(streamReader);
         String inputLine = null;
+        // StringBuffer lets us append strings. We add all the lines to the StringBuffer to get the full response
         StringBuffer response = new StringBuffer();
 
         // Read the response line by line
@@ -44,9 +47,12 @@ public class Main{
         // Get the file name from the url
         String fileName = imageUrl.substring(imageUrl.lastIndexOf("/") + 1);
         System.out.println("Downloading image: " + fileName);
+        
         // Download the image
         URL urlImage = new URI(imageUrl).toURL();
+        // Open a connection to the URL
         InputStream inImage = urlImage.openStream();
+        // BufferedOutputStream lets us write bytes to a file
         OutputStream outImage = new BufferedOutputStream(new FileOutputStream(fileName));
         // Write the image to the file
         for (int i; (i = inImage.read()) != -1;) {
