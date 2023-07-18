@@ -43,9 +43,9 @@ public class Main {
     }
 
     // This is the action listener
-    // This is an inner class and it inherits from ActionListener
+    // This is an inner class and it implments the interface ActionListener
     // This means that it must implement the actionPerformed method
-    // Inheritance is a Year 3 topic, but is needed to make this work
+    // Interfaces are a Year 3 topic, but is needed to make this work
     class Action implements ActionListener {   
         // This is the method that is called when the button is clicked     
         public void actionPerformed(ActionEvent e) {
