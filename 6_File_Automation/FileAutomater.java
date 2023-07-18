@@ -2,16 +2,23 @@ import java.io.*;
 import java.util.zip.*;
 
 public class FileAutomater{
-    int numberOfFiles = 1;
-    String extension = ".txt";
-    int delay = 2000;
 
-    public FileAutomater(int numberOfFiles, String extension, int delay){
-        this.numberOfFiles = numberOfFiles;
-        this.extension = extension;
-        this.delay = delay;
+    public void readFile(String fileName)  {
+        // Will use a try catch block to handle any errors
+        try {
+            FileReader fileReader = new FileReader(fileName);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line = bufferedReader.readLine();
+            while(line != null) {
+                System.out.println(line);
+                line = bufferedReader.readLine();
+            }
+            bufferedReader.close();
+        } catch (IOException e) {
+            System.out.println("Error reading file");
+        }
     }
-
+    
     public void createFiles(int numberOfFiles) throws IOException {
         for (int i = 0; i < numberOfFiles; i++) {
             FileWriter fileWriter = new FileWriter("file" + i + ".txt");
@@ -89,9 +96,10 @@ public class FileAutomater{
                 while(zipEntry != null) {
                     FileOutputStream fos = new FileOutputStream(unzippedFile);
                     byte[] bytes = new byte[1024];
-                    int length;
-                    while((length = zipIn.read(bytes)) >= 0) {
+                    int length = zipIn.read(bytes);
+                    while(length >= 0) {
                         fos.write(bytes, 0, length);
+                        length = zipIn.read(bytes);
                     }
                     fos.close();
                     zipEntry = zipIn.getNextEntry();

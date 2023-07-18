@@ -6,7 +6,7 @@ public class Main {
         String extension = ".txt";
         int delay = 1000;
         
-        FileAutomater automater = new FileAutomater(numberOfFiles, extension, delay);
+        FileAutomater automater = new FileAutomater();
 
         try{
             System.out.println("Creating Files...");
