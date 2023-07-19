@@ -43,16 +43,12 @@ public class Main {
         frame.add(panel);
         panel.setLayout(null);
 
-        // Add the bars to the panel
-        for (int i = 0; i < numberOfBars; i++) {
-            JLabel bar = new JLabel();
-            bar.setBackground(Color.gray);
-            bar.setOpaque(true);
-            panel.add(bar);
-            bars.add(bar);
-        }
+        // Add base bars to the panel
+        addBars();
 
+        // Set the initial heights of the bars
         setInitialHeights();
+
         frame.setVisible(true);
 
         // Sort the bars
@@ -78,6 +74,17 @@ public class Main {
             updateHeights();
         } catch (InterruptedException e) {
             e.printStackTrace();
+        }
+    }
+
+    // Add bars to the panel
+    private void addBars() {
+        for (int i = 0; i < numberOfBars; i++) {
+            JLabel bar = new JLabel();
+            bar.setBackground(unsorted);
+            bar.setOpaque(true);
+            panel.add(bar);
+            bars.add(bar);
         }
     }
 
